@@ -1,11 +1,63 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
-	<Layout>
-		<p class="text-4xl">a</p>
-	</Layout>
+<Layout>
+	<h2 class="text-5xl font-hammersmith ml-4 mt-6">Une nuit d'épouvante à Montbéliard</h2>
+	<p class="font-fredoka mt-8 ml-3 text-base">Amateurs de <span class="font-bold">frissons</span>, préparez-vous à vivre une expérience cinématographique inoubliable ! <span class="font-bold">Festiv'Halloween</span> vous plonge dans l'univers terrifiant du cinéma d'<span class="font-bold">horreur</span>, pour une nuit entière dédiée aux sensations fortes. Organisé à <span class="font-bold">Montbéliard</span>, notre festival coïncide parfaitement avec la période d'<span class="font-bold">Halloween</span>, créant une atmosphère idéale pour célébrer le plaisir de la peur.</p>
+	<p class="font-fredoka mt-6 ml-3 text-base">Nous savons que beaucoup d'entre vous aiment se faire <span class="font-bold">peur</span>, suspendus à leur siège, ressentant la tension croissante d'un bon film d'<span class="font-bold">épouvante</span>. C'est pour cela que Festiv'Halloween a vu le jour : offrir aux amateurs de <span class="font-bold">frissons</span> un festival entièrement dédié à l'horreur et à l'épouvante. En <span class="font-bold">Franche-Comté</span>, les festivals de cinéma se font rares, et encore plus ceux consacrés aux films d'<span class="font-bold">horreur</span>. C'est donc une opportunité unique pour les passionnés du genre de se rassembler, que vous soyez amateurs, curieux, ou professionnels.</p>
+	<div class="flex flex-col items-center justify-center mt-6">
+		<img src="/src/assets/others_images/girl_in_scary_room.webp" class="border-2 rounded-xl w-[80%]">
+		<p class="font-fredoka text-xs mt-1 whitespace-nowrap">Image présentant une femme dans une étrange salle</p>
+	</div>
+	<p class="font-fredoka mt-6 ml-3 text-base">Pendant toute une nuit, le festival proposera un large éventail de films d'horreur : <span class="font-bold">thrillers</span> psychologiques, slashers, films <span class="font-bold">gores</span>, et bien plus encore, pour satisfaire tous les goûts. Nos principaux publics ? Les jeunes, qui adorent les sorties entre amis et se retrouver pour se faire peur. Mais aussi les amateurs de cinéma d'<span class="font-bold">horreur</span>, qui dévorent les classiques et attendent avec impatience de découvrir de nouvelles pépites. Et bien sûr, nous accueillons également les professionnels ou ceux qui souhaitent s'inspirer et enrichir leur culture du <span class="font-bold">cinéma d'épouvante</span>.</p>
+	<p class="font-fredoka mt-6 ml-3 text-xl">Rejoignez-nous pour une nuit où le suspense, la peur et l'horreur seront au rendez-vous. Festiv'Halloween, c'est l'occasion de vibrer et de sursauter.  Vous n'êtes pas prêts de l'oublier !</p>
+	<div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 mt-3">
+		<div class="flex flex-col items-center">
+			<img src="/src/assets/cards/seated_pumpkin.webp" class="border-2 w-[60%] rounded-lg">
+			<div class="border-2 inline-block -translate-y-2 bg-[#DDDDDD] rounded-lg">
+				<a class="font-bold text-xl font-fredoka">
+					<h3 class="ml-2 mt-2">Du 29 au 31 Octobre</h3>
+				</a>
+				<p class="relative font-fredoka text-base ml-2 mb-2 mr-2">Le premier Festiv'Halloween se déroulera à Montbéliard</p>
+			</div>
+		</div>
+		<div class="flex flex-col items-center">
+			<img src="/src/assets/cards/it_poster.webp" class="border-2 w-[60%] rounded-lg">
+			<div class="border-2 inline-block -translate-y-2 bg-[#DDDDDD] rounded-lg">
+				<a class="font-bold text-xl font-fredoka">
+					<h3 class="ml-2 mt-2">Programmation</h3>
+				</a>
+				<p class="relative font-fredoka text-base ml-2 mb-2 mr-2">Découvrez les films qui seront diffusés lors du festival.</p>
+			</div>
+		</div>
+		<div class="flex flex-col items-center">
+			<img src="/src/assets/cards/scary_room.webp" class="border-2 w-[60%] rounded-lg">
+			<div class="border-2 inline-block -translate-y-2 bg-[#DDDDDD] rounded-lg">
+				<a class="font-bold text-xl font-fredoka">
+					<h3 class="ml-2 mt-2">Billeterie en ligne</h3>
+				</a>
+				<p class="relative font-fredoka text-base ml-2 mb-2 mr-2">Découvrez la billeterie en lignepour obtenir des places.</p>
+			</div>
+		</div>
+		<div class="flex flex-col items-center">
+			<img src="/src/assets/cards/art_the_clown.webp" class="border-2 w-[60%] rounded-lg">
+			<div class="border-2 inline-block -translate-y-2 bg-[#DDDDDD] rounded-lg">
+				<a class="font-bold text-xl font-fredoka">
+					<h3 class="ml-2 mt-2">Filmographie</h3>
+				</a>
+				<p class="relative font-fredoka text-base ml-2 mb-2 mr-2">Découvrez les films en tête d’affiche du festival.</p>
+			</div>
+		</div>
+		<div class="flex flex-col items-center">
+			<img src="/src/assets/cards/winnie_the_pooh.webp" class="border-2 w-[60%] rounded-lg">
+			<div class="border-2 inline-block -translate-y-2 bg-[#DDDDDD] rounded-lg">
+				<a class="font-bold text-xl font-fredoka">
+					<h3 class="ml-2 mt-2">À propos</h3>
+				</a>
+				<p class="relative font-fredoka text-base ml-2 mb-2 mr-2">Apprenez en plus sur ce festival.</p>
+			</div>
+		</div>
+	</div>
+</Layout>

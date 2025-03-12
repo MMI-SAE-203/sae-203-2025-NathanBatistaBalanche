@@ -4,6 +4,7 @@
 @theme components {
     --font-nosifer: 'Nosifer', cursive;
     --font-fredoka: 'Fredoka', sans-serif;
+    --font-hammersmith: 'Hammersmith One';
 }
 
 @layer base {
