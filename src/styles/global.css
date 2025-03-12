@@ -1,2 +1,13 @@
 @import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Nosifer&display=swap");
+
+@theme components {
+    --font-nosifer: 'Nosifer', cursive;
+    --font-fredoka: 'Fredoka', sans-serif;
+}
+
+@layer base {
+    h1 {
+        @apply font-nosifer;
+    }
+}
