@@ -1,2 +1,3 @@
-login : nathan.batista_balanche@edu.univ-fcomte.fr
-mdp : @Minipekka25360
+Voici le login et le mdp pour se connecter à la base de données
+login : test@gmail.com
+mdp : Motdepasse1234
