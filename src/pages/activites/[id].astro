@@ -1,0 +1,22 @@
+---
+import {animationById} from "../../js/backend.mjs";
+import {formatDate} from "../../js/backend.mjs";
+import Layout from "../../layouts/Layout.astro";
+export const prerender = false;
+const { id } = Astro.params;
+const animation = await animationById(id);
+if (!animation) {
+    throw new Error(`Aucun invite trouvée pour l'ID : ${id}`);
+}
+---
+<title>{animation.nom}</title>
+<Layout>
+    <h2 class="text-4xl font-hammersmith text-center mt-6 mb-6">{animation.nom}</h2>
+    <div class="flex justify-center ">
+        <img src={animation.imgUrl} alt={animation.nom} class="w-[60%] lg:w-[40%] xl:w-[30%] aspect-square object-cover rounded-4xl border-4" />
+    </div>
+    <p class="font-hammersmith mt-8 ml-3 text-2xl">Présentation</p>
+    <p class="font-fredoka mt-4 ml-3 mb-4 text-xl">{animation.description}</p>
+    <p class="font-fredoka mt-4 mb-4 ml-3 text-xl">Type d'animations : {animation.style}</p>
+    <p class="font-fredoka mt-4 mb-4 ml-3 text-xl">Se déroulera le {formatDate(animation.dateheure)}</p>
+</Layout>

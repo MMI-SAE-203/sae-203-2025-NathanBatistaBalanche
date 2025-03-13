@@ -17,11 +17,20 @@ export async function allFilmSortedByDiffusion() {
     }
 }
 
-export async function allAnimationByDiffusion(){
-    const records = await pb.collection('activites').getFullList({
-        sort: 'dateheure',
-    })
-    return records
+export async function allAnimationByDiffusion() {
+    try {
+        const records = await pb.collection('activites').getFullList({
+            sort: 'dateheure',
+        });
+        const activitesWithImages = records.map((activite) => {
+            activite.imgUrl = pb.files.getUrl(activite, activite.illustration);
+            return activite;
+        });
+        return activitesWithImages;
+    } catch (error) {
+        console.error('Une erreur est survenue en récupérant la liste des activités', error);
+        return [];
+    }
 }
 
 export async function allInviteSortedByNom(){
@@ -42,9 +51,15 @@ export async function filmById(id) {
     }
 }
 
-export async function animationById(id){
-    const record = await pb.collection('activites').getOne(id)
-    return record;
+export async function animationById(id) {
+    try {
+        const record = await pb.collection('activites').getOne(id);
+        record.imgUrl = pb.files.getUrl(record, record.illustration);
+        return record;
+    } catch (error) {
+        console.error(`Une erreur est survenue en récupérant l'animation avec l'ID ${id}`, error);
+        return null;
+    }
 }
 
 export async function inviteById(id) {
@@ -106,12 +121,10 @@ export async function updateInviteById(id, invite){
 
 export async function formatDate(dateString) {
     const date = new Date(dateString);
-    
     const day = String(date.getDate()).padStart(2, '0');
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const year = date.getFullYear();
     const hour = String(date.getHours()).padStart(2, '0');
     const minute = String(date.getMinutes()).padStart(2, '0');
-
     return `${day}/${month}/${year} à ${hour}:${minute}`;
 }

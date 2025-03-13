@@ -1,19 +1,19 @@
 ---
-import Card from"../../components/Card.astro";
+import Cardfilm from"../../components/Cardfilm.astro";
 import Layout from "../../layouts/Layout.astro";
 import { allFilmSortedByDiffusion } from '../../js/backend.mjs';
 export const prerender = false;
 
-let offres;
-offres = await allFilmSortedByDiffusion();
+let films;
+films = await allFilmSortedByDiffusion();
 
 ---
 <title>Programmation</title>
 <Layout>
     <h2 class="text-4xl font-hammersmith text-center mt-6">Programmation</h2>
     <div class="grid flex-col items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 space-x-4">
-        {offres?.map((offre) => (
-            <Card {...offre} />
+        {films?.map((offre) => (
+            <Cardfilm {...offre} />
         ))}
     </div>
 </Layout>
