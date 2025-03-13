@@ -1,0 +1,16 @@
+---
+const { nom, datediffusion, duree, langue, production, imgUrl, id, idinvite} = Astro.props;
+import { formatDate } from '../js/backend.mjs';
+---
+<div class="border rounded-lg shadow-md p-4 m-4 max-w-sm w-[80%]">
+    <div class="p-4">
+        <img src={imgUrl} alt={nom} class="w-full h-auto object-cover rounded-lg mb-2" />
+        <h2 class="text-2xl text-red-500 font-bold mb-2">{nom}</h2>
+        <p class="text-blue-300"><strong>Diffusé le :</strong> {formatDate(datediffusion)}</p>
+        <p class="text-blue-300"><strong>Durée :</strong> {duree}</p>
+        <p class="text-blue-300"><strong>Langue originale :</strong> {langue}</p>
+        <p class="text-blue-300"><strong>Produit par :</strong> {production}</p>
+        <a href={`/programmation/${id}/`}>Voir plus</a>    
+    </div>
+
+</div>

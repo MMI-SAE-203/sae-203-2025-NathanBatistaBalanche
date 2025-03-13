@@ -4,6 +4,7 @@ import { allInviteSortedByNom } from "./backend.mjs";
 import { filmById } from "./backend.mjs";
 import { animationById } from "./backend.mjs";
 import { inviteById } from "./backend.mjs";
+import { getInviteByFilmId } from "./backend.mjs";
 import { getAnimationByAnimateurId } from "./backend.mjs";
 import { addNewFilm } from "./backend.mjs";
 import { addNewAnimation } from "./backend.mjs";
@@ -42,12 +43,12 @@ const pb = new PocketBase('http://127.0.0.1:8090') ;
 //catch (e) { console.error(e) ;
 //}
 
-//try {
-//    const records = await animationById('tqbj58iebfi7dn6');
-//    console.log(records);
-//}
-//catch (e) { console.error(e);
-//}
+try {
+    const records = await getInviteByFilmId('lo18r39kak6bisq');
+    console.log(records);
+}
+catch (e) { console.error(e);
+}
 
 //try {
 //    const records = await inviteById('na70un1lt75kx42');

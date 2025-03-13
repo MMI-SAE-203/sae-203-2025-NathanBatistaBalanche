@@ -1,0 +1,23 @@
+---
+import {filmById} from "../../../js/backend.mjs";
+import {inviteById} from "../../../js/backend.mjs";
+import {formatDate} from "../../../js/backend.mjs";
+import Layout from "../../../layouts/Layout.astro";
+export const prerender = false;
+const { id } = Astro.params;
+const invite = await inviteById(id);
+if (!invite) {
+    throw new Error(`Aucun invite trouvée pour l'ID : ${id}`);
+}
+---
+<title>{invite.nom}</title>
+<Layout>
+    <h2 class="text-4xl font-hammersmith text-center mt-6 mb-6">{invite.nom}</h2>
+    <div class="flex justify-center ">
+        <img src={invite.imgUrl} alt={invite.nom} class="w-[30%] aspect-square object-cover rounded-4xl border-4" />
+    </div>
+    <p class="font-hammersmith mt-8 ml-3 text-2xl">Présentation de {invite.nom}</p>
+    <p class="font-fredoka mt-4 ml-3 text-xl">{invite.biographie}</p>
+    <p class="font-fredoka mt-4 mb-4 ml-3 text-xl">Profession : {invite.profession}</p>
+    <a class="font-fredoka mt-4 ml-3 text-xl underline" href={invite.wikipedia}>Plus d'informations sur {invite.nom}</a>
+</Layout>

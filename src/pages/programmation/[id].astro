@@ -1,0 +1,33 @@
+---
+import {filmById} from "../../js/backend.mjs";
+import {inviteById} from "../../js/backend.mjs";
+import {formatDate} from "../../js/backend.mjs";
+import Layout from "../../layouts/Layout.astro";
+export const prerender = false;
+const { id } = Astro.params;
+const film = await filmById(id);
+if (!film) {
+    throw new Error(`Aucune film trouvée pour l'ID : ${id}`);
+}
+const invite = await inviteById(film.invites);
+if (!invite) {
+    throw new Error(`Aucune film trouvée pour l'ID : ${id}`);
+}
+---
+<title>{film.nom}</title>
+<Layout>
+    <h2 class="text-4xl font-hammersmith text-center mt-6 mb-6">{film.nom}</h2>
+    <div class="flex justify-center ">
+        <img src={film.imgUrl} alt={film.nom} class="w-[20%] h-auto rounded-2xl border-4" />
+    </div>
+    <p class="font-hammersmith mt-8 ml-3 text-2xl">Scénario du film</p>
+    <p class="font-fredoka mt-4 ml-3 text-xl">{film.synopsis}</p>
+    <p class="font-hammersmith mt-8 ml-3 text-2xl">Informations importantes</p>
+    <p class="font-fredoka mt-4 ml-3 text-lg">Ce film sera diffusé le {formatDate(film.datediffusion)}</p>
+    <p class="font-fredoka mt-4 ml-3 text-lg">Sa durée est d'{film.duree}</p>
+    <p class="font-fredoka mt-4 ml-3 text-lg">Sa langue originale est le {film.langue} mais sera diffusé en VF</p>
+    <p class="font-fredoka mt-4 ml-3 text-lg">Le film est produit par {film.production}</p>
+    <p class="font-hammersmith mt-8 ml-3 text-2xl">Invité du film</p>
+    <p class="font-fredoka mt-4 mb-4 ml-3 text-xl">L'invité qui nous fait le plaisir d'être présent au Festiv'Halloween est {invite.nom}</p>
+    <a  class="font-fredoka mt-4 ml-3 text-xl underline" href={`/programmation/invite/${invite.id}/`}>En savoir plus à propos de {invite.nom}</a>
+</Layout>
