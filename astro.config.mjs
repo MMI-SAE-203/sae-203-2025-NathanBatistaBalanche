@@ -15,4 +15,5 @@ export default defineConfig({
 
   integrations: [alpinejs()],
   adapter: netlify()
+  
 });
