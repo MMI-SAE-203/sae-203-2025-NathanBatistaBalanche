@@ -6,9 +6,71 @@ import '../styles/global.css'
     <a href="/" class="m-[2%] lg:m-[0.5%] w-[13%] sm:w-[10%] md:w-[9%] lg:w-[6.5%] xl:w-[4.5%] h-auto">
         <img src="/src/assets/logo/logo_without_text.webp" alt="Logo Festiv'Halloween"/>
     </a>
-    <h1 class="ml-[12%] sm:ml-[12%] md:ml-[15%] lg:ml-[20%] xl:ml-[28%] text-xl sm:text-2xl md:text-3xl lg:text-4xl">Festiv'Halloween</h1>
-    <button class="absolute right-0 w-[13%] sm:w-[10%] md:w-[9%] lg:w-[6.5%] xl:w-[4.5%] mr-[2%] lg:mr-[0.5%]">
+    <h1 class="ml-[8%] sm:ml-[12%] md:ml-[15%] lg:ml-[20%] xl:ml-[28%] text-xl sm:text-2xl md:text-3xl lg:text-4xl">Festiv'Halloween</h1>
+    <button id='menu__btn' class="absolute right-0 w-[10%] sm:w-[10%] md:w-[9%] lg:w-[6.5%] xl:w-[4.5%] mr-[2%] lg:mr-[0.5%]">
         <img src="/src/assets/icons/icon_menu_hamburger.webp" alt="Menu"/>
     </button>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuButton = document.getElementById('menu__btn');
+        const menu = document.getElementById('mainNav');
+        const closeButton = document.getElementById('menu__btn__cross');
+        menuButton.addEventListener('click', function () {
+        menu.style.transform = 'translateX(100vw)';
+        menu.style.display = 'block'; 
+        setTimeout(function() {
+            menu.style.transform = 'translateX(0)'; 
+            menu.setAttribute('aria-hidden', 'false');
+        }, 10);
+});
+
+    closeButton.addEventListener('click', function () {
+        setTimeout(function() {
+            menu.style.display = 'none';
+            menu.setAttribute('aria-hidden', 'true');
+        }, 300); 
+        menu.style.transform = 'translateX(100vw)';
+    });
+});
+</script>
+
+<nav id="mainNav" aria-hidden="true" class="hidden fixed inset-0 z-50 flex-col items-center justify-center bg-orange-500 text-white px-6 py-8">
+    <!-- Bouton de fermeture -->
+    <button id="menu__btn__cross" class="absolute top-5 right-5 bg-orange-500 p-2 rounded-full">
+        <img src="/src/assets/icons/icon_cross.webp" class="w-10 h-10">
+    </button>
+
+    <div class="flex flex-col space-y-15 mt-[8%] ml-[28%] sm:ml-[34%] md:ml-[40%] lg:ml-[40%] xl:ml-[45%]">
+        <div class="flex items-center space-x-5 md:space-x-6 lg:space-x-8 xl:space-x-10">
+            <img src="/src/assets/icons/icon_pumpkin.webp" class="w-8 sm:w-10 md:w-12 lg:w-14 xl:w-16 h-auto">
+            <a href="/" class="text-xl md:text-2xl  font-bold hover:underline text-[#252525]">Accueil</a>
+        </div>
+
+        <div class="flex items-center space-x-5 md:space-x-6 lg:space-x-8 xl:space-x-10">
+            <img src="/src/assets/icons/icon_ping.webp" class="w-8 sm:w-10 md:w-12 lg:w-14 xl:w-16 h-auto">
+            <a href="/presentation/" class="text-xl md:text-2xl  font-bold hover:underline text-[#252525]">Contacts</a>
+        </div>
+
+        <div class="flex items-center space-x-5 md:space-x-6 lg:space-x-8 xl:space-x-10">
+            <img src="/src/assets/icons/icon_bat.webp" class="w-8 sm:w-10 md:w-12 lg:w-14 xl:w-16 h-auto">
+            <a href="/programmation/" class="text-xl md:text-2xl  font-bold hover:underline text-[#252525]">Programmation</a>
+        </div>
+
+        <div class="flex items-center space-x-5 md:space-x-6 lg:space-x-8 xl:space-x-10">
+            <img src="/src/assets/icons/icon_ticket.webp" class="w-8 sm:w-10 md:w-12 lg:w-14 xl:w-16 h-auto">
+            <a href="/billeterie/" class="text-xl md:text-2xl  font-bold hover:underline text-[#252525]">Billeterie</a>
+        </div>
+
+        <div class="flex items-center space-x-5 md:space-x-6 lg:space-x-8 xl:space-x-10">
+            <img src="/src/assets/icons/icon_camera.webp" class="w-8 sm:w-10 md:w-12 lg:w-14 xl:w-16 h-auto">
+            <a href="/activites/" class="text-xl md:text-2xl  font-bold hover:underline text-[#252525]">Activités</a>
+        </div>
+
+        <div class="flex items-center space-x-5 md:space-x-6 lg:space-x-8 xl:space-x-10">
+            <img src="/src/assets/icons/icon_gosth.webp" class="w-8 sm:w-10 md:w-12 lg:w-14 xl:w-16 h-auto">
+            <a href="/apropos/" class="text-xl md:text-2xl  font-bold hover:underline text-[#252525]">À propos</a>
+        </div>
+    </div>
+</nav>
 <img src="/src/assets/others_images/image_index.webp" alt="Image d'un chateau hanté'" class="w-full h-auto max-h-50 md:max-h-80 lg:max-h-100 object-cover"/>
