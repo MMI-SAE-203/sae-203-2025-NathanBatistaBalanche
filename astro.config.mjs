@@ -14,11 +14,6 @@ export default defineConfig({
   },
 
   integrations: [alpinejs()],
-  adapter: netlify()
-  
-});
-
-export default defineConfig({
   adapter: netlify({
     imageCDN: false,
   }),
