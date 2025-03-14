@@ -2,12 +2,12 @@
 const { id, nom, description, style, dateheure, imgUrl} = Astro.props;
 import { formatDate } from '../js/backend.mjs';
 ---
-<div class="border rounded-lg shadow-md p-4 m-4 max-w-sm w-[80%]">
+<div class="border bg-stone-900 bg-opacity-50 rounded-lg shadow-md p-4 m-4 max-w-sm w-[80%]">
     <div class="p-4">
-        <img src={imgUrl} alt={nom} class="w-80% aspect-square object-cover rounded-lg mb-2" />
-        <h2 class="text-2xl text-red-500 font-bold mb-2">{nom}</h2>
-        <p class="text-blue-300"><strong>Se deroulera le :</strong> {formatDate(dateheure)}</p>
-        <p class="text-blue-300"><strong>Type d'animation :</strong> {style}</p>
-        <a href={`/activites/${id}/`} class="underline">Voir plus</a>    
+        <img src={imgUrl} alt={nom} class="w-80% border-2 aspect-square object-cover rounded-lg mb-4 border-white" />
+        <h2 class="text-2xl text-[#FE603F] font-bold mb-2 font-hammersmith">{nom}</h2>
+        <p class="text-[#E89352] font-hammersmith"><strong>Se deroulera le :</strong> {formatDate(dateheure)}</p>
+        <p class="text-[#E89352] font-hammersmith"><strong>Type d'animation :</strong> {style}</p>
+        <a class="text-[#E89352] font-hammersmith underline" href={`/activites/${id}/`} class="underline">Voir plus</a>    
     </div>
 </div>
