@@ -11,7 +11,7 @@ films = await allFilmSortedByDiffusion();
 <title>Programmation</title>
 <Layout>
     <h2 class="text-4xl font-hammersmith text-center mt-6">Programmation</h2>
-    <div class="grid flex-col items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 space-x-4">
+    <div class="grid flex-col place-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 space-x-4">
         {films?.map((offre) => (
             <Cardfilm {...offre} />
         ))}
