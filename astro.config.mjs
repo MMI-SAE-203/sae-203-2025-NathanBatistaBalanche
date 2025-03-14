@@ -17,3 +17,12 @@ export default defineConfig({
   adapter: netlify()
   
 });
+
+export default defineConfig({
+  adapter: netlify({
+    imageCDN: false,
+  }),
+  image: {
+    domains: ['https://festivhalloween.netlify.app/'],
+  },
+});
